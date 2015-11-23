@@ -24,20 +24,23 @@ public class Searcher {
  
     private HashMap<String, ArrayList<String>> hmap = new HashMap<String, ArrayList<String>>();
 	
+    //Create the index file 
     public void createIndex() throws Exception {
     	BufferedReader br = new BufferedReader(new FileReader(new File(filePath)));
 		String s = br.readLine();	
 		Long bytes = (long) 0;
+		//
 		while( s != null ) {
 			String[] data = s.split("\t");
 			//System.out.println(data[0]);
 			String[] names = data[0].split(" ");
 			
 			for(String name:names){
+				//if key doesnt already exist then create new arraylist for it and store the value
 				if (hmap.get(name) == null){
 					ArrayList<String> value = new ArrayList<String>();
-					//value.add(data[1]+new Integer(names.length).toString());
-					//store byte offset and number of bytesin string
+					
+					//store the bytes offset and lenght of current string for future retrieval
 					value.add(new Long(bytes).toString() + "-"+ new Integer(s.length()).toString());
 					hmap.put(name, value);
 				}else{

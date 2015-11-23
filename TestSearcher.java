@@ -15,6 +15,7 @@ public class TestSearcher {
 	  public void test() throws Exception {
 
 	    // MyClass is tested
+		 //put the path name where the file is stored on drive
 	    Searcher tester = new Searcher("/Users/namrataghadi/Desktop/Algos/musical_group.tsv");
         List <String> emptyList = new ArrayList<String>();
 	    // assert statements
